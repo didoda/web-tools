@@ -19,6 +19,8 @@ use Cake\View\Helper;
 
 /**
  * Helper to handle Web Components initialization with properties.
+ *
+ * @extends \Cake\View\Helper<\Cake\View\View>
  */
 class WebComponentsHelper extends Helper
 {

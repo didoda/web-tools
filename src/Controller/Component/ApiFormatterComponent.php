@@ -19,6 +19,7 @@ use BEdita\WebTools\Utility\ApiTools;
 use Cake\Collection\Collection;
 use Cake\Controller\Component;
 use Cake\Utility\Hash;
+use function Cake\Collection\collection;
 
 /**
  * Component class to format API response data.
