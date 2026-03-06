@@ -20,6 +20,7 @@ use Cake\Core\Configure;
 use Cake\Utility\Hash;
 use Cake\Utility\Inflector;
 use Cake\View\Helper\HtmlHelper as CakeHtmlHelper;
+use function Cake\Core\h;
 
 /**
  * Html helper.

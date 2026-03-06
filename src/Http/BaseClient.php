@@ -23,6 +23,7 @@ use Cake\Http\Client\Response;
 use Cake\Log\LogTrait;
 use Cake\Validation\Validator;
 use InvalidArgumentException;
+use function Cake\Core\pluginSplit;
 
 /**
  * Base class for clients.

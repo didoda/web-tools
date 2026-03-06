@@ -23,6 +23,8 @@ use Exception;
 
 /**
  * Helper to obtain thumbnail url
+ *
+ * @extends \Cake\View\Helper<\Cake\View\View>
  */
 class ThumbHelper extends Helper
 {
