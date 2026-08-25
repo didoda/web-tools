@@ -56,15 +56,25 @@ class CacheClearallCommandTest extends TestCase
     public function testExecute(): void
     {
         $path = CACHE . 'twig_view';
-        $this->exec('cache clear_all');
-        $this->assertExitSuccess();
-        $this->assertOutputContains('<warning>Twig cache path not found: ' . $path . '</warning>');
 
-        // create directory to be deleted
-        mkdir($path, 0777, true);
+        // create directory with subdirectories and files to test cache clearing
+        mkdir($path . '/subdir1', 0777, true);
+        file_put_contents($path . '/subdir1/file1.txt', 'test');
+        mkdir($path . '/subdir2', 0777, true);
+        file_put_contents($path . '/subdir2/file2.txt', 'test');
         Router::resetRoutes();
         $this->exec('cache clear_all');
         $this->assertExitSuccess();
         $this->assertOutputContains('<success>Cleared twig cache</success>');
+        // check that the directories and files have been removed
+        $this->assertDirectoryDoesNotExist($path . '/subdir1');
+        $this->assertDirectoryDoesNotExist($path . '/subdir2');
+        // main directory should still exist
+        $this->assertDirectoryExists($path);
+
+        rmdir($path);
+        $this->exec('cache clear_all');
+        $this->assertExitSuccess();
+        $this->assertOutputContains('<warning>Twig cache path not found: ' . $path . '</warning>');
     }
 }

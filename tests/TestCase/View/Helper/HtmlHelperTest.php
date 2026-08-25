@@ -68,7 +68,6 @@ class HtmlHelperTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Html);
         AssetsRevisions::clearStrategy();
 
         parent::tearDown();

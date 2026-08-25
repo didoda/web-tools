@@ -66,8 +66,6 @@ class ThumbHelperTest extends TestCase
     public function tearDown(): void
     {
         parent::tearDown();
-
-        unset($this->Thumb);
         ApiClientProvider::getApiClient()->setupTokens([]);
     }
 
