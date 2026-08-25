@@ -42,17 +42,6 @@ class ApiFormatterComponentTest extends TestCase
     }
 
     /**
-     * tearDown method
-     *
-     * @return void
-     */
-    public function tearDown(): void
-    {
-        unset($this->ApiFormatter);
-        parent::tearDown();
-    }
-
-    /**
      * Provider for `testEmbedIncluded` method
      *
      * @return array

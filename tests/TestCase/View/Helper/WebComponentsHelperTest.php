@@ -49,16 +49,6 @@ class WebComponentsHelperTest extends TestCase
     }
 
     /**
-     * @inheritDoc
-     */
-    public function tearDown(): void
-    {
-        unset($this->WebComponents);
-
-        parent::tearDown();
-    }
-
-    /**
      * Data provider for `testProps` test case.
      *
      * @return array
