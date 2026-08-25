@@ -36,7 +36,13 @@ class CacheClearallCommand extends BaseCommand
 
             return parent::execute($args, $io);
         }
-        unlink($path);
+        foreach (array_diff(scandir($path), ['.', '..']) as $dir) {
+            $subDir = $path . DIRECTORY_SEPARATOR . $dir;
+            foreach (array_diff(scandir($subDir), ['.', '..']) as $file) {
+                unlink($subDir . DIRECTORY_SEPARATOR . $file);
+            }
+            rmdir($subDir);
+        }
         $io->out('<success>Cleared twig cache</success>');
 
         return parent::execute($args, $io);
